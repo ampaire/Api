@@ -10,7 +10,7 @@ def index():
 
 @app.route("/api/v1/entries", methods=["POST"])
 def add_entry():
-    if not request.json or no 'Topic'in request.json:
+    if not request.json or not 'Topic' in request.json:
         abort(400)
         #error 400 is a code for bad request
     
