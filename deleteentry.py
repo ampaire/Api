@@ -27,7 +27,7 @@ entries = [
 
 @app.route("/",)
 def index():
-    return jsonify({'message': 'Welcome to your entries page'})
+    return 'Welcome to your entries page'
 
 
 @app.route("/api/v1/entries/<int:id_>", methods=["DELETE"])
