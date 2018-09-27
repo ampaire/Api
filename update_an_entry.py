@@ -34,13 +34,14 @@ def index():
 
 @app.route("/api/v1/entries/<int:id_>", methods=["PUT"])
 def update_entry(id_):
+    
     entry = [entry for entry in entries if entry['id_'] == id_]
-    if len(entry) == 0:
-        abort(404)
-
+    
     entry[0]['Topic'] = request.json.get('Topic', entry[0]['Topic'])
     entry[0]['Contents'] = request.json.get('Contents', entry[0]['Contents'])
-    return jsonify({'entry': entry[0]})
+    if id_ not in entries:
+        return ('content not found')
+    return jsonify({'entry': entry[0]}),200
 
 if __name__ == "__main__":
     app.run(debug=True)
