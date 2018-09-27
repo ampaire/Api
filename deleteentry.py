@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request,abort
 from datetime import date
 app = Flask(__name__)
 
@@ -22,13 +22,11 @@ entries = [
         "She is the tidy one you know and strict hehe I mean strict about hygiene."
     }
 ]
-# same endpoint as in get request
 
 
 @app.route("/",)
 def index():
-    return jsonify({'message': 'Welcome to your entries page'})
-
+    return ('This is your entries page')
 
 @app.route("/api/v1/entries/<int:id_>", methods=["DELETE"])
 def delete_entry(id_):
@@ -36,7 +34,7 @@ def delete_entry(id_):
     if len(entry) == 0:
         abort(404)
     entries.remove(entry[0])
-    return jsonify({'result': True})
+    return jsonify({'result':'Deleted'}),200
 
 
 if __name__ == "__main__":
