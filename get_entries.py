@@ -1,10 +1,12 @@
 from flask import Flask, jsonify, request
 app = Flask(__name__)
+import datetime
+
 
 entries = [
     {
         'id': 1,
-        'now':2018-7-28 15:54:42.655443,
+        'date':'28-07-2018',
         'Topic': "My Birthday",
         'Contents': "I had actually forgotten all about this day being my birthday." +
         "I got out of my room and all I got was a shower of my life." +
@@ -12,7 +14,7 @@ entries = [
     },
     {
         'id': 2,
-        'now':2018-7-28 23:44:23.456324,
+        'date':'29-07-2018',
         'Topic': "Rachel's visit",
         'Contents': "Dear Diary, did I tell you about Rachel?. Racheal is my elder sister." +
         "She is the picky type and loves good food. So I spent the whole morning cooking" +
@@ -24,7 +26,7 @@ entries = [
 
 @app.route("/",)
 def index():
-    return jsonify({'message': 'Welcome to your entries page'})
+    return 'Welcome to your entries page'
 
 
 
