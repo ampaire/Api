@@ -1,6 +1,23 @@
 from flask import Flask, jsonify, request
-from datetime import date
+import datetime
 app = Flask(__name__)
+
+entries = [
+    {
+        'id_': 1,
+        'date': '22-09-2018',
+        'Topic': 'Singing is not my hobby.',
+        'Contents': 'Diary you know that moment you are asked to sing at a birthday? Gross'
+    },
+    {
+        'id_': 2,
+        'date': '23-09-2018',
+        'Topic': 'September blues',
+        'Contents': 'Yes september blues'
+
+
+    }
+]
 
 
 @app.route("/",)
@@ -10,17 +27,20 @@ def index():
 
 @app.route("/api/v1/entries", methods=["POST"])
 def add_entry():
-    if not request.json or not 'Topic' in request.json:
-        abort(400)
-        #error 400 is a code for bad request
+    if not request.json:
+        return 'Invalid input format'
     
     entry = {
         "id_": entries[-1]['id_']+1,
-        'now': datetime.utcnow(),
+        'date': datetime.datetime.today(),
         "Topic": request.json['Topic'],
         "Contents": request.json.get('Contents', "")}
-    entries.append(entry)
-    return jsonify({'entries': entries})
+    if len(entry) == 0:
+        raise TypeError('Missing field')
+    else:
+        entries.append(entry)
+
+    return jsonify({'entries': entries}), 200
 
 
 if __name__ == "__main__":
