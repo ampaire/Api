@@ -27,20 +27,23 @@ def index():
 
 @app.route("/api/v1/entries", methods=["POST"])
 def add_entry():
+
     if not request.json:
         return 'Invalid input format'
     
-    entry = {
-        "id_": entries[-1]['id_']+1,
-        'date': datetime.datetime.today(),
-        "Topic": request.json['Topic'],
-        "Contents": request.json.get('Contents', "")}
-    if len(entry) == 0:
-        raise TypeError('Missing field')
-    else:
-        entries.append(entry)
+        entry = {
 
-    return jsonify({'entries': entries}), 200
+          "id_": entries[-1]['id_']+1,
+          'date': datetime.datetime.today(),
+          "Topic": request.json['Topic'],
+          "Contents": request.json.get('Contents', "")
+        }
+
+    entries.append(entry)
+    if len(entry) == 0:
+      return "missing data"
+    return jsonify({'entries': entries})
+
 
 
 if __name__ == "__main__":
