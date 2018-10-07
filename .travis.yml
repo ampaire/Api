@@ -17,7 +17,7 @@ addons:
 
 # command to run tests
 script: 
-  - python3 -m pytest --cov= api
+  - python3 -m pytest --cov=tests
 
 after_script:
   - coverage xml
