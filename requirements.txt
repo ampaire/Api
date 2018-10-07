@@ -2,7 +2,4 @@ coverage==4.5.1
 Flask==1.0.2
 Jinja2==2.10
 pytest==3.8.0
-python-apt==1.1.0b1+ubuntu0.16.4.1
-python-debian==0.1.27
-python-xlib==0.14
 requests==2.19.1
