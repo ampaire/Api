@@ -1,6 +1,6 @@
 language: python
 python:
-  - "3.4"
+  - "3.5"
 
 # command to install dependencies
 install:
@@ -9,16 +9,15 @@ install:
 
 addons:
   code_climate:
-    repo_token:
-      secure: "JJ"
-before_script:  # code coverage tool
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
+    repo_token: "Ih1cgvygqdyt8D9sxNUhuOaIatZl3OnfW"
+    before_script:  # code coverage tool
+      - curl -L https://codeclimate.com/github/ampaire/Api/code > ./cc-test-reporter
+      - chmod +x ./cc-test-reporter
+      - ./cc-test-reporter before-build
 
 # command to run tests
 script: 
-  - python3 -m pytest --cov=entries_functions_combined
+  - python3 -m pytest --cov= api
 
 after_script:
   - coverage xml
