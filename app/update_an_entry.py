@@ -36,9 +36,11 @@ def index():
 def update_entry(id_):
     
     entry = [entry for entry in entries if entry['id_'] == id_]
+    entry= {
+        "Topic": request.json['Topic'],
+        "Contents": request.json.get('Contents', "")
+    }
     
-    entry[0]['Topic'] = request.json.get('Topic', entry[0]['Topic'])
-    entry[0]['Contents'] = request.json.get('Contents', entry[0]['Contents'])
     if id_ not in entries:
         return ('content not found')
     return jsonify({'entry': entry[0]}),200
