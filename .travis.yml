@@ -1,28 +1,15 @@
 language: python
 python:
   - "3.5"
+virtualenv:
+  system_site_packages: true
 
 # command to install dependencies
 install:
-  - pip install -r requirements.txt
+  - pip install --user -r requirements.txt
   - pip install coveralls
 
-addons:
-  code_climate:
-    repo_token: "Ih1cgvygqdyt8D9sxNUhuOaIatZl3OnfW"
-    before_script:  # code coverage tool
-      - curl -L https://codeclimate.com/github/ampaire/Api/code > ./cc-test-reporter
-      - chmod +x ./cc-test-reporter
-      - ./cc-test-reporter before-build
 
 # command to run tests
-script: 
-  - python3 -m pytest
+script: pytest
 
-after_script:
-  - coverage xml
-  - ./cc-test-reporter after-build --exit-code 
-
-after_success:
-  - coveralls
-  
