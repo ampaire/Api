@@ -6,20 +6,15 @@ import datetime
 entries = [
     {
         'id': 1,
-        'date':'28-07-2018',
-        'Topic': "My Birthday",
-        'Contents': "I had actually forgotten all about this day being my birthday." +
-        "I got out of my room and all I got was a shower of my life." +
-        "All my friends stood by the door with satisfied smiles watching me dripping wet."
+        'date':'02-04-2018',
+        'Topic': "Not today",
+        'Contents': "I hate late nights......"
     },
     {
         'id': 2,
-        'date':'29-07-2018',
-        'Topic': "Rachel's visit",
-        'Contents': "Dear Diary, did I tell you about Rachel?. Racheal is my elder sister." +
-        "She is the picky type and loves good food. So I spent the whole morning cooking" +
-        "I had to literally scrub the whole house plus the ceiling... haha" +
-        "She is the tidy one you know and strict hehe I mean strict about hygiene."
+        'date':'03-04-2018',
+        'Topic': "When did I grow taller",
+        'Contents': "I am not tall stop kidding me...."
     }
 ]
 
